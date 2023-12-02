@@ -1,0 +1,36 @@
+super admin and admin account difference??
+additional features:
+
+1. Login
+2. forgot password 
+3. Event creation
+4. Event retrieving
+5. event modification
+//participants list creation(dynamic and static)
+6. participants List retrival
+Participants detail retrival for specific particiant list
+7. attach event and participants (in events events)
+8. modify event participants attachment (before making it live)
+9. Communication creation
+10.Communicaton retrieval
+Communication detail retrieval for specific communication id
+11.Communication modification
+12.communicaton and participants attachment 
+13. communication and participant detachement
+14. 
+
+
+
+
+
+//event title
+1. Event id
+2. Event group id (for multiple occurences)[frequencyas well]
+3. Event count 
+4. dates and time
+tbc...
+
+
+
+
+

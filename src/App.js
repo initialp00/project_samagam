@@ -4,7 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Dashboard, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
+import { Dashboard, Orders, Events, Participants, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
@@ -69,14 +69,14 @@ const App = () => {
                 <Route path="dashboard" element={(<Dashboard />)} />
 
                 {/* pages  */}
-                <Route path="/orders" element={<Orders />} />
-                <Route path="/employees" element={<Employees />} />
-                <Route path="/customers" element={<Customers />} />
+                {/* <Route path="/orders" element={<Orders />} /> */}
+                <Route path="/participants" element={<Participants />} />
+                {/* <Route path="/customers" element={<Customers />} /> */}
 
                 {/* apps  */}
-                <Route path="/kanban" element={<Kanban />} />
+                {/* <Route path="/kanban" element={<Kanban />} /> */}
                 <Route path="/editor" element={<Editor />} />
-                <Route path="/calendar" element={<Calendar />} />
+                <Route path="/events" element={<Events />} />
                 <Route path="/color-picker" element={<ColorPicker />} />
 
                 {/* charts  */}

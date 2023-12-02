@@ -22,8 +22,9 @@ const Scheduler = () => {
   };
 
   return (
+    
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="App" title="Calendar" />
+      <Header category="App" title="Events" />
       <ScheduleComponent
         height="650px"
         ref={(schedule) => setScheduleObj(schedule)}
@@ -35,6 +36,8 @@ const Scheduler = () => {
           { ['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'].map((item) => <ViewDirective key={item} option={item} />)}
         </ViewsDirective>
         <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]} />
+        {/* make an event editable for only specific days not just all the days if its on repeat
+       */}
       </ScheduleComponent>
       <PropertyPane>
         <table
