@@ -4,10 +4,39 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Dashboard, Orders, Events, Participants, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
+import { Login,Dashboard, Orders, Events, Participants, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import './App.css';
+import './index.css';
 
 import { useStateContext } from './contexts/ContextProvider';
+
+
+
+let intro= document.querySelector('.intro');
+let logo = document.querySelector('.logo-header');
+let logoSpan = document.querySelectorAll('.logo');
+
+window.addEventListener('DOMContentLoaded',()=>{
+  setTimeout(()=>{
+    logoSpan.forEach((span, idx)=>{
+      setTimeout(()=>{
+        span.classList.add('active');
+      },(idx+1)*400)
+    });
+    setTimeout(()=>{
+      logoSpan.forEach((span,idx)=>{
+
+        setTimeout(()=>{
+          span.classList.remove('active');
+          span.classList.add('fade');
+        },(idx+1)*50)
+      })
+    },2000);
+    setTimeout(()=>{
+      intro.style.top='-100vh';
+    },2300)
+  })
+})
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
@@ -64,19 +93,22 @@ const App = () => {
               {themeSettings && (<ThemeSettings />)}
 
               <Routes>
+                {/* login default load of the website */}
+                <Route path = "/" element = {<Login/>}/>
+                <Route path = "/login" element ={<Login/>}/>
                 {/* dashboard  */}
-                <Route path="/" element={(<Dashboard />)} />
                 <Route path="dashboard" element={(<Dashboard />)} />
 
                 {/* pages  */}
-                {/* <Route path="/orders" element={<Orders />} /> */}
-                <Route path="/participants" element={<Participants />} />
-                {/* <Route path="/customers" element={<Customers />} /> */}
+                <Route path="/orders" element={<Orders />} />
+                <Route path="/customers" element={<Customers />} />
 
                 {/* apps  */}
-                {/* <Route path="/kanban" element={<Kanban />} /> */}
+                <Route path="/kanban" element={<Kanban />} />
                 <Route path="/editor" element={<Editor />} />
                 <Route path="/events" element={<Events />} />
+                <Route path="/participants" element={<Participants />} />
+                
                 <Route path="/color-picker" element={<ColorPicker />} />
 
                 {/* charts  */}

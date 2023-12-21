@@ -44,10 +44,8 @@ import {
 } from '@syncfusion/ej2-react-grids';
 import { employeesData, employeesGrid } from '../data/dummy';
 import { Header } from '../components';
-// import Box from '@mui/material/box';
-// import Checkbox from '@mui/material/Checkbox';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Switch from '@mui/material/Switch';
+import { GridComponents, Selection, Edit, Toolbar, Sort, Filter } from '@syncfusion/ej2-react-grids';
+
 
 const Participants = () => {
   const initialFilters = {
@@ -63,9 +61,9 @@ const Participants = () => {
   const [filteredEmployees, setFilteredEmployees] = useState([]);
   const [importedData, setImportedData] = useState('');
 
-  const toolbarOptions = ['Search'];
-
-  const editing = { allowDeleting: true, allowEditing: true };
+  const selectionsettings = { persistSelecton : true};
+  const toolbarOptions = ['Delete'];
+  const editing = { allowDeleting: true, allowEditing: true};
 
   const handleCheckboxChange = (category, value) => {
     setFilters((prevFilters) => ({
@@ -113,11 +111,11 @@ const Participants = () => {
   };
 
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-orange-300 rounded-3xl">
       <Header category="Page" title="Participants" />
 
       {/* Filters Form */}
-      <form onSubmit={handleFormSubmit} className="my-6">
+      <form onSubmit={handleFormSubmit} className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-orange-300 rounded-3xl">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {/* Categories */}
           <label>
@@ -219,24 +217,25 @@ const Participants = () => {
       {/* Grid Component */}
       <GridComponent
         dataSource={filteredEmployees.length > 0 ? filteredEmployees : employeesData}
+        enableHover = {false}
         width="auto"
         allowPaging
-        allowSorting
         pageSettings={{ pageCount: 5 }}
+        selectionSettings = {selectionsettings}
+        toolbar = {toolbarOptions}
         editSettings={editing}
-        toolbar={toolbarOptions}
+        allowSorting
       >
         <ColumnsDirective>
           {employeesGrid.map((item, index) => (
             <ColumnDirective key={index} {...item} />
           ))}
         </ColumnsDirective>
-        <Inject services={[Search, Page]} />
+        <Inject services={[Search, Page, Selection, Toolbar, Edit, Sort, Filter]} />
       </GridComponent>
     </div>
   );
 };
 
 export default Participants;
-
 
