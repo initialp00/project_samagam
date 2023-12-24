@@ -95,7 +95,6 @@ const App = () => {
               <Routes>
                 {/* login default load of the website */}
                 <Route path = "/" element = {<Login/>}/>
-                <Route path = "/login" element ={<Login/>}/>
                 {/* dashboard  */}
                 <Route path="dashboard" element={(<Dashboard />)} />
 
